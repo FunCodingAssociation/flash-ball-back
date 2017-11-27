@@ -20,6 +20,7 @@ var brickOffsetLeft = 30;
 var score = 0;
 var lives = 3;
 
+
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
     bricks[c] = [];
@@ -52,6 +53,10 @@ function mouseMoveHandler(e) {
     var relativeX = e.clientX - canvas.offsetLeft;
     if(relativeX > 0 && relativeX < canvas.width) {
         paddleX = relativeX - paddleWidth/2;
+		if(paddleX < 0)
+			paddleX = 0;
+		else if(paddleX + paddleWidth > canvas.width)
+			paddleX = canvas.width - paddleWidth;
     }
 }
 function collisionDetection() {
@@ -59,7 +64,7 @@ function collisionDetection() {
         for(r=0; r<brickRowCount; r++) {
             var b = bricks[c][r];
             if(b.status == 1) {
-                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                if(x > b.x - ballRadius && x < b.x + brickWidth + ballRadius && y > b.y - ballRadius && y < b.y + brickHeight + ballRadius) {
                     dy = -dy;
                     b.status = 0;
                     score++;
@@ -152,9 +157,13 @@ function draw() {
     
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
+		if(paddleX + paddleWidth > canvas.width)
+			paddleX = canvas.width - paddleWidth;
     }
     else if(leftPressed && paddleX > 0) {
         paddleX -= 7;
+		if(paddleX < 0)
+			paddleX = 0;
     }
     
     x += dx;
