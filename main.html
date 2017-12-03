@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link href="style.css" rel="stylesheet">
-		<title> FlashBack </title>
-	</head>
-	<body>
-		<canvas id="myCanvas" width="950" height="500"></canvas>
-		<script src="act.js"></script>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <title>Flash(ball)back</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+  <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
+ <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+
+    <div id="menu" class="main">
+      <div id="main">
+        <span id="name">Flash(ball)back</span>
+          <div><a href="#" class="button play">Start Game</a></div>
+          <div><a href="#" class="button credits">Credits</a></div>
+      </div>
+    </div>
+
+    <div id = "layer">
+      <canvas id="myCanvas" width="950" height="500">
+        <p>You're browser does not support the required functionality to play this game.</p>
+        <p>Please update to a modern browser such as <a href="www.google.com/chrome/‎">Google Chrome</a> to play.</p>
+      </canvas>
+    </div>
+
+    <div id="game-over" class="game-over">
+      <h2>Your score is <span id="score"></span>!</h2>
+      <h2>Try again?</h2>
+      <div><a href="#" class="button yes">Yes</a></div>
+      <div><a href="#" class="button no">No</a></div>
+    </div>
+
+	<div id="continue" class="game-over">
+      <h2>Ready for next level?</h2>
+      <div><a href="#" class="button ready">Ready!</a></div>
+	  <div><a href="#" class="button exit">Exit</a></div>
+    </div>
+	
+	<div id="victory" class="game-over">
+      <h2>YOU WIN, CONGRATS!</h2>
+	  <h2>Your score is <span id="score"></span>!</h2>
+      <div><a href="#" class="button newgame">New game</a></div>
+	  <div><a href="#" class="button quit">Exit</a></div>
+    </div>
+
+    <div id = "credits">
+      <div>Our fabulous team</div>
+      <div></div>
+      <div>
+        <a href="https://www.facebook.com/alexander.korzhenevski1">
+          <h1 class = "actor">Oleksandr Korzhenevskyi</h1>
+        </a>
+      </div>
+      <div></div>
+      <div>
+        <a href="https://www.facebook.com/lazuka.o">
+          <h1 class = "actor">Vitalii Lazuka</h1>
+        </a>
+      </div>
+      <a href="#" class="button back"><span>Back</span></a>
+    </div>
+
+  </div>
+  <script type="text/javascript" src="act.js"></script>
+</body>
 </html>
